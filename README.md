@@ -1,4 +1,5 @@
-# Project-4
+# Heart Attack Prediction
+![alt text](image.png)
 
 ## Workflows
 
@@ -11,3 +12,10 @@
 7. Update the pipeline
 8. Update the main.py
 9. Update the app.py
+
+
+### Dataset Used
+
+
+[Dataset Link](https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset?select=heart.csv)
+

@@ -1,1 +1,17 @@
-key: value
+COLUMNS:
+  age: int64  
+  sex: int64  
+  cp: int64  
+  trtbps: int64  
+  chol: int64  
+  fbs: int64  
+  restecg: int64  
+  thalachh: int64  
+  exng: int64  
+  oldpeak: float64
+  slp: int64  
+  caa: int64  
+  thall: int64  
+
+TARGET_COLUMN:
+  output: int64

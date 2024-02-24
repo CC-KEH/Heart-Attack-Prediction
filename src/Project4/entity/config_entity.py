@@ -7,3 +7,11 @@ class Data_Ingestion_Config:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
+    
+@dataclass(frozen = True)
+class Data_Validation_Config:
+    root_dir: Path
+    unzip_data_dir: Path
+    STATUS_FILE: str
+    all_schema: dict
+    

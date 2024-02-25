@@ -1,1 +1,75 @@
-key: value
+LogisticRegression:
+  # penalty: {‘l1’, ‘l2’, ‘elasticnet’, None}, default=’l2’
+  # solver: {‘lbfgs’, ‘liblinear’, ‘newton-cg’, ‘newton-cholesky’, ‘sag’, ‘saga’}, default=’lbfgs’
+  # max_iter: int, default=100
+  # l1_ratio: float, default=None
+  # max_iter: 100
+  l1_ratio: 0.7 # Makes it ElasticNet
+  
+
+KNeighborsClassifier:
+  n_neighbors: 5
+  # algorithm: {‘auto’, ‘ball_tree’, ‘kd_tree’, ‘brute’}, default=’auto’
+
+GaussianNB:
+  # var_smoothingfloat, default=1e-9
+
+DecisionTreeClassifier:
+  # criterion: {“gini”, “entropy”, “log_loss”}, default=”gini”
+  # splitter: {“best”, “random”}, default=”best”
+  # max_depth: int, default=None
+  # min_samples_split: int or float, default=2
+  criterion: "log_loss"
+  max_depth: 8
+
+RandomForestClassifier:
+  # n_estimators: int, default=100
+  # criterion: {“gini”, “entropy”, “log_loss”}, default=”gini”
+  # max_depth: int, default=None
+  # min_samples_split: int or float, default=2
+  # min_samples_leaf: int or float, default=1
+  # max_leaf_nodes: int, default=None
+  # bootstrap: bool, default=True
+  # random_state: int, RandomState instance or None, default=None
+  n_estimators: 
+   - 100
+   - 200
+   - 300
+  max_depth: 
+   - None
+   - 5
+   - 10
+  min_samples_split: 
+   - 2
+   - 5
+   - 10
+  min_samples_leaf: 
+   - 1
+   - 2
+   - 4
+
+
+SVC:
+  # C: float, default=1.0
+  # kernel: {‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’} or callable, default=’rbf’
+  # max_iter: int, default=-1
+  C:
+   - 0.1
+   - 1
+   - 10
+  kernel: 
+   - linear
+   - rbf
+  gamma: 
+   - 0.1
+   - 0.01
+   - 0.001
+
+GradientBoostingClassifier:
+  # loss: {‘log_loss’, ‘exponential’}, default=’log_loss’
+  # n_estimators: int, default=100
+  # criterion {‘friedman_mse’, ‘squared_error’}, default=’friedman_mse’
+  n_estimators:
+   - 100
+  criterion:
+   - friedman_mse

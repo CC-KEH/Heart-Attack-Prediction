@@ -12,6 +12,7 @@ COLUMNS:
   slp: int64  
   caa: int64  
   thall: int64  
+  output: int64
 
 TARGET_COLUMN:
-  output: int64
+  name: output

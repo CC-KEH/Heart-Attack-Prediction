@@ -3,7 +3,7 @@ from src.Project4.utils.common import logger
 from src.Project4.components.data_transformation import Data_Transformation
 from src.Project4.entity.config_entity import Data_Transformation_Config
 from src.Project4.config.configuration import Configuration_Manager
-
+from pathlib import Path
 
 STAGE_NAME = 'Data Transformation'
 
@@ -13,17 +13,18 @@ class DataTransformationTrainingPipeline:
     
     def main(self):    
         try:
-            with open('artifacts/data_validation/status.txt','r') as f:
+            with open(Path("artifacts/data_validation/status.txt"), "r") as f:
                 status = f.read().split(" ")[-1]
-            
-            if(status==True):
+
+            if status == "True":
                 config = Configuration_Manager()
                 data_transformation_config = config.get_data_transformation_config()
                 data_transformation = Data_Transformation(config=data_transformation_config)
                 data_transformation.transform_data()
+
             else:
-                raise Exception('Invalid Data Schema')
-            
+                raise Exception("You data schema is not valid")
+
         except Exception as e:
             raise e
 

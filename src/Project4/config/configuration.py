@@ -1,6 +1,6 @@
 from src.Project4.constants import *
 from src.Project4.utils.common import read_yaml,create_directories
-from src.Project4.entity.config_entity import Data_Ingestion_Config,Data_Validation_Config,Data_Transformation_Config,Model_Trainer_Config
+from src.Project4.entity.config_entity import Data_Ingestion_Config,Data_Validation_Config,Data_Transformation_Config,Model_Trainer_Config,Model_Evaluation_Config
 
 class Configuration_Manager:
     def __init__(self,config_file_path = CONFIG_FILE_PATH,params_file_path = PARAMS_FILE_PATH,schema_file_path = SCHEMA_FILE_PATH):
@@ -40,3 +40,20 @@ class Configuration_Manager:
         create_directories([config.root_dir])
         model_trainer_config = Model_Trainer_Config(root_dir=config.root_dir,train_path=config.train_path,test_path=config.test_path,target_column=schema,params=params)
         return model_trainer_config
+    
+    def get_model_evaluation_config(self)->Model_Evaluation_Config:
+        config = self.config.model_evaluation
+        schema = self.schema.TARGET_COLUMN
+        params = self.params #! Fix the issue of params
+        
+        create_directories([config.root_dir])
+        
+        model_evaluation_config = Model_Evaluation_Config(root_dir=config.root_dir,
+                                                          test_data_path=config.test_data_path,
+                                                          model_path=config.model_path,
+                                                          all_params=params,
+                                                          metric_file_name=config.metric_file_name,
+                                                          mlflow_uri="https://dagshub.com/CC-KEH/Heart-Attack-Prediction.mlflow",
+                                                          target_column=schema.name)
+        return model_evaluation_config
+    

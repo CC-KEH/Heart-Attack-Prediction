@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Attack Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="heartAttackForm" action='/predict' method='POST'>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select>
+        
+        <label for="cp">Chest Pain Type:</label>
+        <select id="cp" name="cp" required>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+        </select>
+        
+        <label for="trtbps">Resting Blood Pressure (mm Hg):</label>
+        <input type="number" id="trtbps" name="trtbps" required>
+        
+        <label for="chol">Serum Cholesterol (mg/dl):</label>
+        <input type="number" id="chol" name="chol" required>
+        
+        <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl:</label>
+        <select id="fbs" name="fbs" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        
+        <label for="restecg">Resting Electrocardiographic Results:</label>
+        <select id="restecg" name="restecg" required>
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave Abnormality</option>
+            <option value="2">Left Ventricular Hypertrophy</option>
+        </select>
+        
+        <label for="thalachh">Maximum Heart Rate Achieved:</label>
+        <input type="number" id="thalachh" name="thalachh" required>
+        
+        <label for="exng">Exercise Induced Angina:</label>
+        <select id="exng" name="exng" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        
+        <label for="oldpeak">ST Depression Induced by Exercise:</label>
+        <input type="number" id="oldpeak" name="oldpeak" step="0.1" required>
+        
+        <label for="slp">Slope of the Peak Exercise ST Segment:</label>
+        <select id="slp" name="slp" required>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+        </select>
+        
+        <label for="caa">Number of Major Vessels Colored by Flouroscopy:</label>
+        <input type="number" id="caa" name="caa" required>
+        
+        <label for="thall">Thalassemia:</label>
+        <select id="thall" name="thall" required>
+            <option value="0">Normal</option>
+            <option value="1">Fixed Defect</option>
+            <option value="2">Reversible Defect</option>
+        </select>
+        
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>

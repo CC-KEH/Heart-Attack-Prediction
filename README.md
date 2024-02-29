@@ -14,6 +14,9 @@
 9. Update the app.py
 
 
+This is a complete end-to-end application for predicting the likelihood of a heart attack based on user input. It utilizes a machine learning model trained on relevant medical data and provides a user-friendly interface for interaction.
+
+
 ### Dataset Used
 
 

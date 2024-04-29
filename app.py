@@ -23,6 +23,8 @@ def train():
 def predict():
     if request.method=='POST':
         try:
+            features = ['cp','thalachh','slp','restecg','exng','oldpeak','caa','thall','sex','age']
+            print("in the output route")
             age = int(request.form['age'])
             sex = int(request.form['sex'])
             cp = int(request.form['cp'])
@@ -37,11 +39,15 @@ def predict():
             caa = int(request.form['caa'])
             thall = int(request.form['thall'])
             
-            data = [age,sex,cp,trtbps,chol,fbs,restecg,thalachh,exng,oldpeak,slp,caa,thall]
-            data = np.array(data).reshape(1,13)
+            data = [age,sex,cp,restecg,thalachh,exng,oldpeak,slp,caa,thall]
+            data = np.array(data).reshape(1,10)
             
             obj = PredictionPipeline()
             predict = obj.predict(data=data)
+            if predict == 1:
+                predict = 'True'
+            else:
+                predict = 'False'
             return render_template('result.html',prediction=str(predict))
         
         except Exception as e:

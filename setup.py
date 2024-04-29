@@ -1,13 +1,13 @@
-import setuptools 
+import setuptools
 
 
-with open('README.md','r') as f:
+with open('README.md', 'r') as f:
     long_description = f.read()
-    
+
 __version__ = "0.0.0"
 REPO_NAME = 'Project-4'
 SRC_REPO = 'src'
-AUTHOR_NAME = 'C.C-KEH'
+AUTHOR_NAME = 'CC-KEH'
 AUTHOR_EMAIL = 'example@example.com'
 
 setuptools.setup(
@@ -18,6 +18,6 @@ setuptools.setup(
     description='Project 4',
     long_description=long_description,
     url=f"https/github.com/{AUTHOR_NAME}/{REPO_NAME}",
-    package_dir={"":"src"},
+    package_dir={"": "src"},
     packages=setuptools.find_packages(where='src')
 )

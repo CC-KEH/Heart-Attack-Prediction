@@ -5,17 +5,18 @@ from src.Project4.utils.common import logger
 
 STAGE_NAME = 'Model Trainer Stage'
 
+
 class ModeLTrainerTrainingPipeline:
     def __init__(self):
         pass
-    
+
     def main(self):
         config = Configuration_Manager()
         model_trainer_config = config.get_model_trainer_config()
         model_trainer = Model_Trainer(config=model_trainer_config)
-        model_trainer.train_and_evaluate_models()
-        
-        
+        model_trainer.train_model()
+
+
 if __name__ == "__main__":
     try:
         logger.info(f'>>>>>>> STAGE {STAGE_NAME} Started <<<<<<<')

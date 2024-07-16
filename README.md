@@ -1,5 +1,6 @@
 # Heart Attack Prediction
-![alt text](image.png)
+
+![Heart Image](image.png)
 
 ## Workflows
 
